@@ -1,7 +1,3 @@
-<div></div>
-<div></div>
-<div></div>
-<div></div>
 # 304 | Facial Recognition System  
 
 Rian doing goofy stuff
