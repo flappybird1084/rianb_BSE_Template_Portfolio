@@ -1,4 +1,4 @@
-<h1>304 | Facial Recognition System <!h1>
+<h1>304 | Facial Recognition System </h1>
 
 Rian doing goofy stuff
 
