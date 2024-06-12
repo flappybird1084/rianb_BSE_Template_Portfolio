@@ -8,11 +8,13 @@ The end product is a tiny device with LEDs and a photoresistor that lights up wh
 This works with a battery providing power to LEDs and a transistor blocking the flow of power until the photoresistor resists nothing. This typically occurs when there is no light falling on it. 
 
 
+<h2>Main Project</h2>
+In this project, I will design a facial recognition system. 
+Some major libraries were required for this process: Facenet-pytorch, and pytorch. 
+The main plan is as such: Take an image, isolate the most prominent face in it, and run image recognition <b>only on the face.</b> 
 
-In this project, I will probably end up designing a facial recognition system. 
 <!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! -->
 
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
 ```HTML 
 <!--- This is an HTML comment in Markdown -->
 <!--- Anything between these symbols will not render on the published site -->
