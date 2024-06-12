@@ -1,6 +1,6 @@
 <h1>304 | Facial Recognition System </h1>
 
-Rian doing goofy stuff
+[Github Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)
 
 <h2>Starter Project</h2>
 My starter project was Weevil Eyes. In this project, I soldered a couple individual components onto a circuit board. 
@@ -10,7 +10,7 @@ This works with a battery providing power to LEDs and a transistor blocking the 
 
 <h2>Main Project</h2>
 In this project, I will design a facial recognition system. 
-Some major libraries were required for this process: Facenet-pytorch, and pytorch. 
+Some major libraries were required for this process: facenet-pytorch, and pytorch. I also needed to reconfigure the python environments on my laptop with pyenv, as python had been installed on homebrew which blocked some libaries from being installed.
 The main plan is as such: Take an image, isolate the most prominent face in it, and run image recognition <b>only on the face.</b> 
 
 <!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! -->
