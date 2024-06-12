@@ -2,6 +2,12 @@
 
 Rian doing goofy stuff
 
+<h2>Starter Project</h2>
+My starter project was Weevil Eyes. In this project, I soldered a couple individual components onto a circuit board. 
+The end product is a tiny device with LEDs and a photoresistor that lights up when it senses a lack of light around it. 
+This works with a battery providing power to LEDs and a transistor blocking the flow of power until the photoresistor resists nothing. This typically occurs when there is no light falling on it. 
+
+
 
 In this project, I will probably end up designing a facial recognition system. 
 <!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! -->
