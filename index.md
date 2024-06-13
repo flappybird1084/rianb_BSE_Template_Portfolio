@@ -449,6 +449,16 @@ def visualize_model(model, num_images=6):
 
 visualize_model(model_ft)
 ```
+<h2> Bill of Materials</h2>
+Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
+Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
+
+| **Part** | **Note** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|
+| CanaKit Raspberry Pi 4 Starter Kit | Image processing | $119.99 | <a href="https://www.canakit.com/raspberry-pi-4-starter-kit.html"> Link </a> |
+| Haiway 10.1 Inch Monitor| Initial setup of Pi and minor adjustments | $84.96 | <a href="https://www.amazon.com/Haiway-Security-Surveillance-Controller-Resolution/dp/B07WCQ627G?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&smid=A2ECNUTN5RLACN&th=1"> Link </a> |
+| Logitech K120 Keyboard | Basic input | $12.34 | <a href="https://www.amazon.com/Logitech-920-002478-K120-USB-Keyboard/dp/B003ELVLKU/ref=sr_1_2?crid=3QE83NKLCZ1UB&dib=eyJ2IjoiMSJ9.hGINAjjbAmcnMmhSu62W7ybtCHaT8ifr068BE_xt70sqaJKSERXvtm9l4hcYzEzb1Nadmebc8KfMnVBUMOHJ_fo_kXmFEZ2vVP70KkO0JfP_imqKzqrFmr2PcwG1egHFtqYNIuwuBlGPaihgt6WzWLyBDvc2R7EMOPgLOsKY1VU-SgHs18jkv59qxYLWyeCnfLo88_cstvYpQygQcHqg05iKghON5vYXtHjiUaHM45dKs2eBoMiAmUKu09tcs6j93HJBOjJSF850VYd05UpW1PSgwPFabdDnlwHm7-xTAHk.9L3Pp4zftTMPPQaXuohixdM7KOBZGOdJMPSt1_RXcTk&dib_tag=se&keywords=k120&qid=1718309899&s=electronics&sprefix=k120%2Celectronics%2C142&sr=1-2&th=1"> Link </a> |
+| Logitech B100 Mouse | Basic input | $7.99 | <a href="https://www.amazon.com/Logitech-B100-Corded-Mouse-Computers/dp/B003L62T7W/ref=sr_1_3?crid=2GLUL6WJZ0GKO&dib=eyJ2IjoiMSJ9.OKAfwMtMmgjzpEXrJp10_w8xKaMtq7qsCFw-slfV25FJ6ELYelI8G81zHARc8xMbnTCq0tL_OChdFmyNgEhRPUoxERchBVR8gjhwMqhTFISEKzIPDAg4q4-67bUtJ9QuR-JyYdy4QKrLb_eqwybdizcPq1iZbiJ7LZNoIMVa6qXXi_bSBFNF3n90LwKkWHf0m7aNz-YVruwux6_LjHomLs7nRuOJZq9HAm_VWolRxoC5zXDEE4HmjvR3PZX3RyQ3xegWDG9tbdSWfNdPpzPbkSI2vTYmhCHUokWoZ-0Po-g.clnJylxu8WzF8OdB44ZsJ2Hct5aYZCMng0HDx-eXojM&dib_tag=se&keywords=mouse%2Blogitech%2Bwired&qid=1718309962&s=electronics&sprefix=mouse%2Blogitech%2Bwir%2Celectronics%2C137&sr=1-3&th=1"> Link </a> |
 
 
 <!--  
