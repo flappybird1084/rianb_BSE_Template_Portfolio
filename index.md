@@ -30,7 +30,17 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 ![Headstone Image](logo.svg)
 
 -->
+<h2>Milestone 1</h2>
+Getting to this stage was quite hard. A number of challenges caused me to be completely lost on many of the operations done up till this point. First, when installing libraries like pytorch, I had to completely reconfigure my python environment with pyenv. I also couldn't figure out how to load images into the transfer learning model on my own, so I downloaded pytorch's example notebook and modified it for my use case. However, the biggest issue was with the Apple MPS, or Metal Performance Shaders. The MPS is responisible for graphical compute and, in our case, accelerated performance with machine learning models (I only learned later that it provided a noticeable boost when running models, not training them). Documentation online for this was quite sparse, and I had to download the nightly build of pytorch, which was probably unnecessary, to train on the MPS, in addition to a few tweaks to number formatting for easier compute. 
+<br><br>
 
+Some things that I accomplished in the process of reaching this milestone were:
+<br>- Took majority of training and validation pictures
+<br>- Learned how to use pytorch to transfer learn
+<br>- Learned how to use the Pillow Imaging Libary
+<br>- Learned how to use facenet-pytorch's MTCNN model to identify and track faces across different frames of photo and video
+<br>- Cropped training and validation images to only the faces, eliminating unnecessary background clutter
+<br>- Trained primary model on top of resnet18 (future ones to be trained on InceptionResnetv1)
 
 <h2>Code</h2>
 
