@@ -22,9 +22,13 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 |:--:|:--:|:--:|:--:|
 | Rian B | Stratford Preparatory | Computer Science | Incoming Junior
 
+
+<!--
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
 ![Headstone Image](logo.svg)
+
+-->
 
 <h2>Code</h2>
 
