@@ -5,6 +5,9 @@
 [Github Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)
 
 <h2>Starter Project</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X_XL_MmhUXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 My starter project was Weevil Eyes. In this project, I soldered a couple individual components onto a circuit board. 
 The end product is a tiny device with LEDs and a photoresistor that lights up when it senses a lack of light around it. 
 This works with a battery providing power to LEDs and a transistor blocking the flow of power until the photoresistor resists nothing. This typically occurs when there is no light falling on it. 
