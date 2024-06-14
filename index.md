@@ -35,7 +35,7 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 
 -->
 <h2>Milestone 1</h2>
-Getting to this stage was quite hard. A number of challenges caused me to be completely lost on many of the operations done up till this point. First, when installing libraries like pytorch, I had to completely reconfigure my python environment with pyenv. I also couldn't figure out how to load images into the transfer learning model on my own, so I downloaded pytorch's example notebook and modified it for my use case. However, the biggest issue was with the Apple MPS, or Metal Performance Shaders. The MPS is responisible for graphical compute and, in our case, accelerated performance with machine learning models (I only learned later that it provided a noticeable boost when running models, not training them). Documentation online for this was quite sparse, and I had to download the nightly build of pytorch, which was probably unnecessary, to train on the MPS, in addition to a few tweaks to number formatting for easier compute. 
+Getting to this stage was quite hard. A number of challenges caused me to be completely lost on many of the operations done up till this point. First, when installing libraries like pytorch, I had to completely reconfigure my python environment with pyenv. I also couldn't figure out how to load images into the transfer learning model on my own, so I downloaded pytorch's example notebook and modified it for my use case. However, the biggest issue was with the Apple MPS, or Metal Performance Shaders. The MPS is responisible for graphical compute and, in our case, accelerated performance with machine learning models (I only learned later that it provided a noticeable boost when running models, not training them). Documentation online for this was quite sparse, and I had to download the nightly build of pytorch, which was probably unnecessary, to train on the MPS, in addition to a few tweaks to number formatting for easier compute. Funnily enough, the MPS uses a proprietary type of float type called MPSFloatType, which is not compatible with cpu-bound models using torch.FloatTensor. This meant that the model I trained on my laptop couldn't be used on the raspberry pi, so I had to train another model on the CPU. It wasn't that bad, though, as I later ended up training many more models. 
 <br><br>
 
 Some things that I accomplished in the process of reaching this milestone were:
@@ -45,6 +45,7 @@ Some things that I accomplished in the process of reaching this milestone were:
 <br>- Learned how to use facenet-pytorch's MTCNN model to identify and track faces across different frames of photo and video
 <br>- Cropped training and validation images to only the faces, eliminating unnecessary background clutter
 <br>- Trained primary model on top of resnet18 (future ones to be trained on InceptionResnetv1)
+<br>- Set up python3 virtual environments on a linux machine
 
 <h2>Code</h2>
 
