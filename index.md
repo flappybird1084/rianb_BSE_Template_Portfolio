@@ -747,7 +747,7 @@ cv2.waitKey(0)
 
 cv2.destroyAllWindows()
 ```
-<hr>
+<hr><br>
 <h1>Starter Project</h1>
 
 <img src = "IMG_5561.jpeg" width = "250" height = "300">
@@ -758,8 +758,8 @@ My starter project was Weevil Eyes. In this project, I soldered a couple individ
 The end product is a tiny device with LEDs and a photoresistor that lights up when it senses a lack of light around it. 
 This works with a battery providing power to LEDs and a transistor blocking the flow of power until the photoresistor resists nothing. This typically occurs when there is no light falling on it. 
 
-
-<h2> Bill of Materials</h2>
+<hr><br>
+<h1> Bill of Materials</h1>
 
 
 | **Part** | **Note** | **Price** | **Link** |
