@@ -5,8 +5,8 @@
 [Github Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)<br>
 [Code Repo](https://github.com/flappybird1084/bse_face_recognition)
 
-<img src = "IMG_5561.jpeg" width = "250" height = "300">
 
+<hr>
 <h1>Main Project</h1>
 In this project, I will design a facial recognition system. 
 Some major libraries were required for this process: facenet-pytorch, and pytorch. I also needed to reconfigure the python environments on my laptop with pyenv, as python had been installed on homebrew which blocked some libaries from being installed.
@@ -32,6 +32,7 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 ![Headstone Image](logo.svg)
 
 -->
+<hr>
 <h1>Milestone 1</h1>
 
 
@@ -729,8 +730,10 @@ cv2.waitKey(0)
 
 cv2.destroyAllWindows()
 ```
-
+<hr>
 <h1>Starter Project</h1>
+
+<img src = "IMG_5561.jpeg" width = "250" height = "300">
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/X_XL_MmhUXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
