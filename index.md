@@ -40,7 +40,7 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 <h2>Description</h2>
 Since most of my work was already done from the previous milestone, this was much easier to do. Because I knew the model wouldn't run if trained on the MPS, I trained four more models on the CPU, three on an expanding collection of faces, and one with pictures from a dataset. I also wrote a program that used facenet's MTCNN (face isolator) and the opencv camera stream. This program opens the stream in a new window, draws a bounding box over the faces detected, and gives a prediction in the shell output to who it thinks the main subject is. An output of 0 means it doesn't recognize my face, and 1 means it does. 
 
-<img src = "test_camerastream.png" width = "350" height = "500">
+<img src = "test_camerastream.png" width = "350" height = "500"><br><br>
 Then, I set up the Rasberry Pi 4 Model B (4gb RAM) I was given and quickly installed all the required libraries. I also backed all my code up to Github (link at top of website) and cloned the repository to the Raspberry Pi after initial setup and testing was done. Soon enough, I got the exact same output on the Raspberry Pi, albeit four times slower and with a lot of video lag. <br><br>
 
 <h2>Accomplishments</h2>
