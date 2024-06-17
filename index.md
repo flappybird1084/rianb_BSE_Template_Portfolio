@@ -2,19 +2,12 @@
 <h1>304 | Facial Recognition System </h1>
 <h3>By Rian Butala</h3>
 
-[Github Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)
-
-<h2>Starter Project</h2>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/X_XL_MmhUXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-My starter project was Weevil Eyes. In this project, I soldered a couple individual components onto a circuit board. 
-The end product is a tiny device with LEDs and a photoresistor that lights up when it senses a lack of light around it. 
-This works with a battery providing power to LEDs and a transistor blocking the flow of power until the photoresistor resists nothing. This typically occurs when there is no light falling on it. 
+[Github Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)<br>
+[Code Repo](https://github.com/flappybird1084/bse_face_recognition)
 
 <img src = "IMG_5561.jpeg" width = "250" height = "300">
 
-<h2>Main Project</h2>
+<h1>Main Project</h1>
 In this project, I will design a facial recognition system. 
 Some major libraries were required for this process: facenet-pytorch, and pytorch. I also needed to reconfigure the python environments on my laptop with pyenv, as python had been installed on homebrew which blocked some libaries from being installed.
 The main plan is as such: Take an image, isolate the most prominent face in it, and run image recognition <b>only on the face.</b> 
@@ -34,10 +27,14 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 ![Headstone Image](logo.svg)
 
 -->
-<h2>Milestone 1</h2>
-Getting to this stage was quite hard. A number of challenges caused me to be completely lost on many of the operations done up till this point. First, when installing libraries like pytorch, I had to completely reconfigure my python environment with pyenv. I also couldn't figure out how to load images into the transfer learning model on my own, so I downloaded pytorch's example notebook and modified it for my use case. However, the biggest issue was with the Apple MPS, or Metal Performance Shaders. The MPS is responisible for graphical compute and, in our case, accelerated performance with machine learning models (I only learned later that it provided a noticeable boost when running models, not training them). Documentation online for this was quite sparse, and I had to download the nightly build of pytorch, which was probably unnecessary, to train on the MPS, in addition to a few tweaks to number formatting for easier compute. Funnily enough, the MPS uses a proprietary type of float type called MPSFloatType, which is not compatible with cpu-bound models using torch.FloatTensor. This meant that the model I trained on my laptop couldn't be used on the raspberry pi, so I had to train another model on the CPU. It wasn't that bad, though, as I later ended up training many more models. 
-<br><br>
+<h1>Milestone 1</h1>
 
+<h2>Description</h2>
+Getting to this stage was quite hard. A number of challenges caused me to be completely lost on many of the operations done up till this point. First, when installing libraries like pytorch, I had to completely reconfigure my python environment with pyenv. I also couldn't figure out how to load images into the transfer learning model on my own, so I downloaded pytorch's example notebook and modified it for my use case. However, the biggest issue was with the Apple MPS, or Metal Performance Shaders. The MPS is responisible for graphical compute and, in our case, accelerated performance with machine learning models (I only learned later that it provided a noticeable boost when running models, not training them). Documentation online for this was quite sparse, and I had to download the nightly build of pytorch, which was probably unnecessary, to train on the MPS, in addition to a few tweaks to number formatting for easier compute. Funnily enough, the MPS uses a proprietary type of float type called MPSFloatType, which is not compatible with cpu-bound models using torch.FloatTensor. This meant that the model I trained on my laptop couldn't be used on the raspberry pi, so I had to train another model on the CPU. It wasn't that bad, though, as I later ended up training many more models. 
+<br><be>
+
+
+<h2>Accomplishments</h2>
 Some things that I accomplished in the process of reaching this milestone were:
 <br>- Took majority of training and validation pictures
 <br>- Learned how to use pytorch to transfer learn
@@ -60,6 +57,7 @@ import time
 video_capture = cv2.VideoCapture(0)
 folder = "./img/train/notrian/"
 
+counter = 0
 while True:
     #print("loop started")
     # Capture frame-by-frame
@@ -71,9 +69,10 @@ while True:
         break
     if key  == ord('s'):
         timestr = time.strftime("%Y-%m-%d %H:%M:%S") 
-        print("Saving image: "+timestr + ".jpeg")
-        filename = folder + timestr + ".jpeg"
+        print("Saving image: "+timestr +"c"+str(counter)+ ".jpeg")
+        filename = folder + timestr +"c"+str(counter)+ ".jpeg"
         cv2.imwrite(filename, frame)
+        counter=counter+1
     if key == 13: ## enter key
         timestr = time.strftime("%Y-%m-%d %H:%M:%S")
         print("Saving image: "+timestr + ".jpeg")
@@ -153,7 +152,7 @@ for img in imgs:
 
 ```
 
-After that, I trained the model by transfer learning on resnet-18 (also imported from notebook). I had a lot of trouble trying to use Apple's MPS backend to train the model, as Pytorch had nicer compatibility with CPU and Nvidia CUDA training, but managed to figure it out in the end. 
+After that, I trained the model by transfer learning on resnet-18 (also imported from notebook). I had a lot of trouble trying to use Apple's MPS backend to train the model, as Pytorch had nicer compatibility with CPU and Nvidia CUDA training, but managed to figure it out in the end. However, MPS-trained models cannot be run on the CPU, so I had to redo my training all on the CPU.
 
 ```
 import torch
@@ -201,7 +200,7 @@ data_transforms = {
     ]),
 }
 
-data_dir = "/Users/rianbutala/Rian's projects/Coding/Facial Recognition/cropped"
+data_dir = 'cropped'
 image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
                                           data_transforms[x])
                   for x in ['train', 'val']}
@@ -210,9 +209,10 @@ dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x], batch_size=16,
               for x in ['train', 'val']}
 dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
 class_names = image_datasets['train'].classes
+print(class_names[0])
 
 #device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device('mps:0')
+device = torch.device('cpu')
 
 
 def imshow(inp, title=None):
@@ -335,23 +335,28 @@ def visualize_model(model, num_images=6):
         model.train(mode=was_training)
 
 
-
 model_ft = models.resnet18(weights='IMAGENET1K_V1')
+#model_ft = facenet_pytorch.InceptionResnetV1(pretrained='vggface2', device=device, classify= True, num_classes=1)
+
+
 num_ftrs = model_ft.fc.in_features
+
 # Here the size of each output sample is set to 2.
 # Alternatively, it can be generalized to ``nn.Linear(num_ftrs, len(class_names))``.
+
 model_ft.fc = nn.Linear(num_ftrs, 2)
 
 model_ft = model_ft.to(device)
 
 criterion = nn.CrossEntropyLoss()
+#criterion = nn.BCEWithLogitsLoss()
+
 
 # Observe that all parameters are being optimized
 optimizer_ft = optim.SGD(model_ft.parameters(), lr=0.001, momentum=0.9)
 
 # Decay LR by a factor of 0.1 every 7 epochs
 exp_lr_scheduler = lr_scheduler.StepLR(optimizer_ft, step_size=7, gamma=0.1)
-
 
 model_ft = train_model(model_ft, criterion, optimizer_ft, exp_lr_scheduler,
                        num_epochs=25)
@@ -466,6 +471,265 @@ def visualize_model(model, num_images=6):
 
 visualize_model(model_ft)
 ```
+Now, let's start using the model with the camera stream. Because the previous block of code ran the recognizer on a precropped image, we'll need to develop a new program to take an image file, crop it, and run predictions. 
+```
+import torchvision.transforms as transforms
+import torchvision.datasets as datasets
+from torch.utils.data import DataLoader,Dataset
+from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
+import cv2
+import time
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.optim import lr_scheduler
+import torch.backends.cudnn as cudnn
+import numpy as np
+import torchvision
+from torchvision import datasets, models, transforms
+import matplotlib.pyplot as plt
+import time
+import os
+from PIL import Image, ImageDraw
+from tempfile import TemporaryDirectory
+from facenet_pytorch import MTCNN
+import numpy
+
+video_capture = cv2.VideoCapture(0)
+
+model_ft = torch.load("model_ft_3.pt")
+
+device = torch.device('cpu')
+
+mtcnn = MTCNN(keep_all=True, device=device)
+
+image_path = ""
+
+def pre_image(model, image_path):
+    #img = Image.open(image_path)
+    cv2img =cv2.imread(image_path)
+
+    #_,cv2img = video_capture.read()
+    boxes, _ = mtcnn.detect(cv2img)
+
+    color_converted = cv2.cvtColor(cv2img, cv2.COLOR_BGR2RGB) 
+
+    pilcv2img = Image.fromarray(color_converted).copy()
+   
+    frame_draw = pilcv2img.copy()
+    draw = ImageDraw.Draw(frame_draw)
+
+
+    try:
+        for box in boxes:
+            draw.rectangle(box.tolist(), outline=(255, 0, 0), width=6)
+            print(box)
+        #frame_draw.show()
+        #cv2.imshow("frame2", cv2img)
+        #key = cv2.waitKey(1) & 0xff
+
+        cropped_img = pilcv2img.copy()
+        cropped_img = cropped_img.crop(boxes[0])
+    except:
+        print("caught!!")
+        cropped_img = pilcv2img.copy()
+        
+
+    
+    img = frame_draw.copy()
+    open_cv_image = numpy.array(img)
+    open_cv_image = open_cv_image[:, :, ::-1].copy()
+
+    img2 = frame_draw.copy()
+    try:
+        img2 = img2.crop(boxes[0])
+    except:
+        pass
+    open_cv_image2 = numpy.array(img2)
+    open_cv_image2 = open_cv_image2[:, :, ::-1].copy()
+
+
+
+    cv2.imshow("rect-frame", open_cv_image)
+    key = cv2.waitKey(1) & 0xff
+
+
+    mean = [0.485, 0.456, 0.406] 
+    std = [0.229, 0.224, 0.225]
+    transform_norm = transforms.Compose([transforms.ToTensor(), 
+    transforms.Resize((224,224)),transforms.Normalize(mean, std)])
+    # get normalized image
+
+    try:
+        img_normalized = transform_norm(img.crop(boxes[0])).float()
+        img_normalized = img_normalized.unsqueeze_(0)
+        # input = Variable(image_tensor)
+        img_normalized = img_normalized.to(device)
+        # print(img_normalized.shape)
+       
+    except:
+        img_normalized = transform_norm(img).float()
+        img_normalized = img_normalized.unsqueeze_(0)
+        # input = Variable(image_tensor)
+        img_normalized = img_normalized.to(device)
+        print("didn't crop")
+        # print(img_normalized.shape)
+
+    with torch.no_grad():
+        model.eval()  
+        output =model(img_normalized)
+        print(output)
+        index = output.data.cpu().numpy().argmax()
+        print(index)
+        #classes = train_ds.classes
+        #class_name = classes[index]
+        #return class_name
+
+_,img = video_capture.read()
+#cv2.imshow("Frame",img)
+
+pre_image(model_ft, "/Users/rianbutala/Rian's projects/Coding/Facial Recognition/bse_face_recognition/tester_image.jpeg")
+    #time.sleep(0.1)
+#time.sleep(10)
+cv2.waitKey(0)
+
+cv2.destroyAllWindows()
+```
+And now, with a few modifications, we can run the model on a video stream:
+```
+import torchvision.transforms as transforms
+import torchvision.datasets as datasets
+from torch.utils.data import DataLoader,Dataset
+from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
+import cv2
+import time
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.optim import lr_scheduler
+import torch.backends.cudnn as cudnn
+import numpy as np
+import torchvision
+from torchvision import datasets, models, transforms
+import matplotlib.pyplot as plt
+import time
+import os
+from PIL import Image, ImageDraw
+from tempfile import TemporaryDirectory
+from facenet_pytorch import MTCNN
+import numpy
+
+video_capture = cv2.VideoCapture(0)
+
+model_ft = torch.load("model_ft_4.pt")
+
+device = torch.device('cpu')
+
+mtcnn = MTCNN(keep_all=True, device=device)
+
+def pre_image(model):
+    #img = Image.open(image_path)
+    _,cv2img = video_capture.read()
+    boxes, _ = mtcnn.detect(cv2img)
+
+    color_converted = cv2.cvtColor(cv2img, cv2.COLOR_BGR2RGB) 
+
+    pilcv2img = Image.fromarray(color_converted).copy()
+   
+    frame_draw = pilcv2img.copy()
+    draw = ImageDraw.Draw(frame_draw)
+
+
+    try:
+        for box in boxes:
+            draw.rectangle(box.tolist(), outline=(255, 0, 0), width=6)
+            print(box)
+        #frame_draw.show()
+        #cv2.imshow("frame2", cv2img)
+        #key = cv2.waitKey(1) & 0xff
+
+        cropped_img = pilcv2img.copy()
+        cropped_img = cropped_img.crop(boxes[0])
+    except:
+        print("caught!!")
+        cropped_img = pilcv2img.copy()
+        
+
+    
+    img = frame_draw.copy()
+    open_cv_image = numpy.array(img)
+    open_cv_image = open_cv_image[:, :, ::-1].copy()
+
+    img2 = frame_draw.copy()
+    try:
+        img2 = img2.crop(boxes[0])
+    except:
+        pass
+    open_cv_image2 = numpy.array(img2)
+    open_cv_image2 = open_cv_image2[:, :, ::-1].copy()
+
+
+
+    cv2.imshow("rect-frame", open_cv_image)
+    key = cv2.waitKey(1) & 0xff
+
+
+    mean = [0.485, 0.456, 0.406] 
+    std = [0.229, 0.224, 0.225]
+    transform_norm = transforms.Compose([transforms.ToTensor(), 
+    transforms.Resize((224,224)),transforms.Normalize(mean, std)])
+    # get normalized image
+
+    try:
+        img_normalized = transform_norm(img.crop(boxes[0])).float()
+        img_normalized = img_normalized.unsqueeze_(0)
+        # input = Variable(image_tensor)
+        img_normalized = img_normalized.to(device)
+        # print(img_normalized.shape)
+       
+    except:
+        img_normalized = transform_norm(img).float()
+        img_normalized = img_normalized.unsqueeze_(0)
+        # input = Variable(image_tensor)
+        img_normalized = img_normalized.to(device)
+        print("didn't crop")
+        # print(img_normalized.shape)
+
+    with torch.no_grad():
+        model.eval()  
+        output =model(img_normalized)
+        print(output)
+        index = output.data.cpu().numpy().argmax()
+        print(index)
+        #classes = train_ds.classes
+        #class_name = classes[index]
+        #return class_name
+
+_,img = video_capture.read()
+#cv2.imshow("Frame",img)
+
+while(True):
+    pre_image(model_ft)
+    #time.sleep(0.1)
+#time.sleep(10)
+cv2.waitKey(0)
+
+cv2.destroyAllWindows()
+```
+
+<h1>Starter Project</h1>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X_XL_MmhUXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+My starter project was Weevil Eyes. In this project, I soldered a couple individual components onto a circuit board. 
+The end product is a tiny device with LEDs and a photoresistor that lights up when it senses a lack of light around it. 
+This works with a battery providing power to LEDs and a transistor blocking the flow of power until the photoresistor resists nothing. This typically occurs when there is no light falling on it. 
+
+
 <h2> Bill of Materials</h2>
 
 
