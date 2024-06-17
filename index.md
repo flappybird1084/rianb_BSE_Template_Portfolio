@@ -12,7 +12,12 @@ In this project, I will design a facial recognition system.
 Some major libraries were required for this process: facenet-pytorch, and pytorch. I also needed to reconfigure the python environments on my laptop with pyenv, as python had been installed on homebrew which blocked some libaries from being installed.
 The main plan is as such: Take an image, isolate the most prominent face in it, and run image recognition <b>only on the face.</b> 
 
-<!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! -->
+<!--Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails! 
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X_XL_MmhUXI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+-->
 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
@@ -28,6 +33,10 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 
 -->
 <h1>Milestone 1</h1>
+
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Yb5uKxvU8p0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <h2>Description</h2>
 Getting to this stage was quite hard. A number of challenges caused me to be completely lost on many of the operations done up till this point. First, when installing libraries like pytorch, I had to completely reconfigure my python environment with pyenv. I also couldn't figure out how to load images into the transfer learning model on my own, so I downloaded pytorch's example notebook and modified it for my use case. However, the biggest issue was with the Apple MPS, or Metal Performance Shaders. The MPS is responisible for graphical compute and, in our case, accelerated performance with machine learning models (I only learned later that it provided a noticeable boost when running models, not training them). Documentation online for this was quite sparse, and I had to download the nightly build of pytorch, which was probably unnecessary, to train on the MPS, in addition to a few tweaks to number formatting for easier compute. Funnily enough, the MPS uses a proprietary type of float type called MPSFloatType, which is not compatible with cpu-bound models using torch.FloatTensor. This meant that the model I trained on my laptop couldn't be used on the raspberry pi, so I had to train another model on the CPU. It wasn't that bad, though, as I later ended up training many more models. 
