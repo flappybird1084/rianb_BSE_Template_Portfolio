@@ -41,7 +41,13 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 Since most of my work was already done from the previous milestone, this was much easier to do. Because I knew the model wouldn't run if trained on the MPS, I trained four more models on the CPU, three on an expanding collection of faces, and one with pictures from a dataset. I also wrote a program that used facenet's MTCNN (face isolator) and the opencv camera stream. This program opens the stream in a new window, draws a bounding box over the faces detected, and gives a prediction in the shell output to who it thinks the main subject is. An output of 0 means it doesn't recognize my face, and 1 means it does. 
 
 <img src = "test_camerastream.png" width = "350" height = "500">
+Then, I set up the Rasberry Pi 4 Model B (4gb RAM) I was given and quickly installed all the required libraries. I also backed all my code up to Github (link at top of website) and cloned the repository to the Raspberry Pi after initial setup and testing was done. Soon enough, I got the exact same output on the Raspberry Pi, albeit four times slower and with a lot of video lag. <br><br>
 
+<h2>Accomplishments</h2>
+Some things that I accomplished in the process of reaching this milestone were: 
+<br>- Took many more training and validation pictures
+<br>- Trained models that were far better to previous ones (model-5 took 95 minutes to train on 1807 images and is by far the most accurate out of all of them)
+<br>- Learned how to parse individual pictures in directories with glob and modify with PIL and opencv
 
 <hr>
 <h1>Milestone 1</h1>
@@ -52,7 +58,7 @@ Since most of my work was already done from the previous milestone, this was muc
 
 <h2>Description</h2>
 Getting to this stage was quite hard. A number of challenges caused me to be completely lost on many of the operations done up till this point. First, when installing libraries like pytorch, I had to completely reconfigure my python environment with pyenv. I also couldn't figure out how to load images into the transfer learning model on my own, so I downloaded pytorch's example notebook and modified it for my use case. However, the biggest issue was with the Apple MPS, or Metal Performance Shaders. The MPS is responisible for graphical compute and, in our case, accelerated performance with machine learning models (I only learned later that it provided a noticeable boost when running models, not training them). Documentation online for this was quite sparse, and I had to download the nightly build of pytorch, which was probably unnecessary, to train on the MPS, in addition to a few tweaks to number formatting for easier compute. Funnily enough, the MPS uses a proprietary type of float type called MPSFloatType, which is not compatible with cpu-bound models using torch.FloatTensor. This meant that the model I trained on my laptop couldn't be used on the raspberry pi, so I had to train another model on the CPU. It wasn't that bad, though, as I later ended up training many more models. 
-<br><be>
+<br><br>
 
 
 <h2>Accomplishments</h2>
@@ -62,8 +68,8 @@ Some things that I accomplished in the process of reaching this milestone were:
 <br>- Learned how to use the Pillow Imaging Libary
 <br>- Learned how to use facenet-pytorch's MTCNN model to identify and track faces across different frames of photo and video
 <br>- Cropped training and validation images to only the faces, eliminating unnecessary background clutter
-<br>- Trained primary model on top of resnet18 (future ones to be trained on InceptionResnetv1)
-<br>- Set up python3 virtual environments on a linux machine
+<br>- Trained primary model on top of resnet18 
+<br>- Set up python3 virtual environments 
 
 <h2>Code</h2>
 
