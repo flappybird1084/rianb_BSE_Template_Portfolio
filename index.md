@@ -6,7 +6,7 @@
 [Code Repo](https://github.com/flappybird1084/bse_face_recognition)
 
 
-<hr>
+<hr><br>
 <h1>Main Project</h1>
 In this project, I will design a facial recognition system. 
 Some major libraries were required for this process: facenet-pytorch, and pytorch. I also needed to reconfigure the python environments on my laptop with pyenv, as python had been installed on homebrew which blocked some libaries from being installed.
@@ -32,7 +32,7 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 ![Headstone Image](logo.svg)
 
 -->
-<hr>
+<hr><br>
 <h1>Milestone 2</h1>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q3fLUHrEtrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -49,7 +49,7 @@ Some things that I accomplished in the process of reaching this milestone were:
 <br>- Trained models that were far better to previous ones (model-5 took 95 minutes to train on 1807 images and is by far the most accurate out of all of them)
 <br>- Learned how to parse individual pictures in directories with glob and modify with PIL and opencv
 
-<hr>
+<hr><br>
 <h1>Milestone 1</h1>
 
 
