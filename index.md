@@ -33,6 +33,15 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 
 -->
 <hr>
+<h1>Milestone 2</h1>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q3fLUHrEtrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h2>Description</h2>
+Since most of my work was already done from the previous milestone, this was much easier to do. Because I knew the model wouldn't run if trained on the MPS, I trained four more models on the CPU, three on an expanding collection of faces, and one with pictures from a dataset. I also wrote a program that used facenet's MTCNN (face isolator) and the opencv camera stream. This program opens the stream in a new window, draws a bounding box over the faces detected, and gives a prediction in the shell output to who it thinks the main subject is. An output of 0 means it doesn't recognize my face, and 1 means it does. 
+![Milestone 2 Image](test_camerastream.png)
+
+<hr>
 <h1>Milestone 1</h1>
 
 
