@@ -71,7 +71,9 @@ Some things that I accomplished in the process of reaching this milestone were:
 <br>- Trained primary model on top of resnet18 
 <br>- Set up python3 virtual environments 
 
-<h2>Code</h2>
+
+<hr><br>
+<h1>Code</h1>
 
 This project was very code-intensive. First, I had to take pictures using the OpenCV python library and save them to a specified path on my computer.
 ```
