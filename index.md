@@ -75,7 +75,7 @@ Some things that I accomplished in the process of reaching this milestone were:
 <hr><br>
 <h1>Code</h1>
 
-This project was very code-intensive. First, I had to take pictures using the OpenCV python library and save them to a specified path on my computer.
+This project is almost all code, with the only hardware involved being plug and play. When starting this project, I used Tensorflow's tutorial and [this](https://lucagessi.medium.com/face-recognition-with-pytorch-a771f52d7e28) Medium article to guide me along, but I soon got the hang of it around the second milestone. Here is my rough game plan. First, I had to take pictures using the OpenCV python library and save them to a specified path on my computer.
 ```
 ## Original source from here:
 ## https://realpython.com/face-detection-in-python-using-a-webcam/
