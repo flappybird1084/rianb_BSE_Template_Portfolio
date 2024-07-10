@@ -2,7 +2,7 @@
 <h1>304 | Facial Recognition System </h1>
 <h3>By Rian Butala</h3>
 
-[Github Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)<br>
+[Website Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)<br>
 [Code Repo](https://github.com/flappybird1084/bse_face_recognition)
 
 
