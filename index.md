@@ -53,7 +53,11 @@ Since I finished my project on week 1, everything here is pretty much what I did
 <br>- Made automatic video deleting system to save storage on host
 <br>- Added --headless argument so main program can be run without a display connected
 <br>- Added automatic script running on login
-<br>- I also 3d printed a stand for the arducam, as it kept falling over
+<br>- I also 3d printed a stand for the arducam, as it kept falling over and added a fan to the raspberry pi because the cpu temperatures were in excess of 80 celsius, the publicly stated thermal limit for maximum processing power. 
+
+<img src = "arducam_stand.png" width = "400" height = "300"><br><br>
+
+<img src = "arducam_irl" width = "490" height = "500"><br><br>
 
 <img src = "streamlit_mainpage.png" width = "875" height = "500"><br><br>
 <img src = "streamlit_downloadpage.png" width = "875" height = "500"><br><br>
