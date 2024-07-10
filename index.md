@@ -35,7 +35,7 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 <hr><br>
 <h1>Milestone 3</h1>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q3fLUHrEtrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ppQ4p4OuqbU?si=6iZBag9meivjx0G9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <h2>Description</h2>
 I had to write this twice lol
