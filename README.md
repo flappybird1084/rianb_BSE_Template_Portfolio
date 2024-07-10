@@ -1,1 +1,2 @@
-This repository is a template for documenting BlueStamp Engineering projects. Users should replace this text with a description of what their project is and what their repository holds. 
+Hi! I'm Rian and over the summer of 2024 I made a thing. 
+[https://flappybird1084.github.io/rianb_BSE_Template_Portfolio/]
