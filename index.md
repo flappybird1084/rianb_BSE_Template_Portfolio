@@ -33,6 +33,32 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 
 -->
 <hr><br>
+<h1>Milestone 3</h1>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q3fLUHrEtrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h2>Description</h2>
+I had to write this twice lol
+
+<img src = "streamlit_mainpage.png" width = "350" height = "500"><br><br>
+<img src = "streamlit_downloadpage.png" width = "350" height = "500"><br><br>
+
+Since I finished my project on week 1, everything here is pretty much what I did since then, and I'll list it out for readability:
+<br>- Trained 2 more facial recognition models, with our count now over 2000 images in the training dataset
+<br>- Trained an emotion recognition model on 26000 images from a dataset (still on resnet because others were much more inaccurate)
+<br>- Rewrote detection script to run both models simultaneously
+<br>- Created program using netcat to constantly ping a target ip address and port with detection results (client must be using listener program as well)
+<br>- Overlaid image detection results onto face, so now you can tell directly from the image what the prediction results are
+<br>- Created session management system, which will activate once a face is detected. Saves pictures to a directory named detection-xyz and turns off once a face has not been detected for 5 consecutive frames
+<br>- Created automatic video compiler, which compiles all the images from detection folder into a video in detections/videos/. Also recompiles into h264 with ffmpeg after initial compile is complete 
+<br>- Wrote Streamlit website displaying a live video feed from the camera. Users can choose whether to manually update frame or let it auto update
+<br>- Created download page for Streamlit so users can view past detection videos and download, delete, or play them in their browser
+<br>- Made automatic video deleting system to save storage on host
+<br>- Added --headless argument so main program can be run without a display connected
+<br>- Added automatic script running on login
+
+
+<hr><br>
 <h1>Milestone 2</h1>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q3fLUHrEtrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
