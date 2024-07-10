@@ -40,9 +40,6 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 <h2>Description</h2>
 I had to write this twice lol
 
-<img src = "streamlit_mainpage.png" width = "350" height = "500"><br><br>
-<img src = "streamlit_downloadpage.png" width = "350" height = "500"><br><br>
-
 Since I finished my project on week 1, everything here is pretty much what I did since then, and I'll list it out for readability:
 <br>- Trained 2 more facial recognition models, with our count now over 2000 images in the training dataset
 <br>- Trained an emotion recognition model on 26000 images from a dataset (still on resnet because others were much more inaccurate)
@@ -56,6 +53,12 @@ Since I finished my project on week 1, everything here is pretty much what I did
 <br>- Made automatic video deleting system to save storage on host
 <br>- Added --headless argument so main program can be run without a display connected
 <br>- Added automatic script running on login
+<br>- I also 3d printed a stand for the arducam, as it kept falling over
+
+<img src = "streamlit_mainpage.png" width = "875" height = "500"><br><br>
+<img src = "streamlit_downloadpage.png" width = "875" height = "500"><br><br>
+
+
 
 
 <hr><br>
