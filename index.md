@@ -59,8 +59,8 @@ Since I finished my project on week 1, everything here is pretty much what I did
 
 <img src = "arducam_irl.png" width = "650" height = "500"><br><br>
 
-<img src = "streamlit_mainpage.png" width = "875" height = "500"><br><br>
-<img src = "streamlit_downloadpage.png" width = "875" height = "500"><br><br>
+<img src = "streamlit_mainpage.png" width = "650" height = "365"><br><br>
+<img src = "streamlit_downloadpage.png" width = "650" height = "365"><br><br>
 
 
 
