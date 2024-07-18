@@ -38,10 +38,8 @@ The main plan is as such: Take an image, isolate the most prominent face in it, 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ppQ4p4OuqbU?si=6iZBag9meivjx0G9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <h2>Description</h2>
-I had to write this twice lol
 
 Since I finished my project on week 1, everything here is pretty much what I did since then, and I'll list it out for readability:
-<br>- Trained 2 more facial recognition models, with our count now over 2000 images in the training dataset
 <br>- Trained an emotion recognition model on 26000 images from a dataset (still on resnet because others were much more inaccurate)
 <br>- Rewrote detection script to run both models simultaneously
 <br>- Created program using netcat to constantly ping a target ip address and port with detection results (client must be using listener program as well)
