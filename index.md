@@ -5,6 +5,7 @@
 [Website Repo](https://github.com/flappybird1084/rianb_BSE_Template_Portfolio/tree/gh-pages)<br>
 [Code Repo](https://github.com/flappybird1084/bse_face_recognition)
 
+<iframe width="560" height="315" src="<iframe width="560" height="315" src="https://www.youtube.com/embed/1E6juSQTUfw?si=7ZtIl4ECwo5XdiZ2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <hr><br>
 <h1>Main Project</h1>
